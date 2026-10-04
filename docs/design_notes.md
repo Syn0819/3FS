@@ -1,5 +1,25 @@
 # Design Notes
 
+## 目录
+
+- [Design and implementation](#design-and-implementation)
+- [File system interfaces](#file-system-interfaces)
+  - [Limitations of FUSE](#limitations-of-fuse)
+  - [Asynchronous zero-copy API](#asynchronous-zero-copy-api)
+- [File metadata store](#file-metadata-store)
+  - [Location of file chunks](#location-of-file-chunks)
+  - [File metadata on transactional key-value store](#file-metadata-on-transactional-key-value-store)
+  - [Dynamic file attributes](#dynamic-file-attributes)
+- [Chunk storage system](#chunk-storage-system)
+  - [Data placement](#data-placement)
+  - [Balanced traffic during recovery](#balanced-traffic-during-recovery)
+  - [Data replication](#data-replication)
+  - [Failure detection](#failure-detection)
+  - [Data recovery](#data-recovery)
+  - [Chunks and the metadata](#chunks-and-the-metadata)
+
+---
+
 ## Design and implementation
 
 The 3FS system has four components: cluster manager, metadata service, storage service and client. All components are connected in an RDMA network (InfiniBand or RoCE).

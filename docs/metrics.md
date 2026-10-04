@@ -1,5 +1,12 @@
 # Metric System of 3FS
 
+## 目录
+
+- [Type of Metrics](#type-of-metrics)
+- [List of Metrics](#list-of-metrics)
+
+---
+
 ## Type of Metrics
 
 3FS calculates metrics in each service and store metrics to ClickHouse through monitor service. There are some types of metrics in 3FS, and the metric may or may not be reset after each report.
